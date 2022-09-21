@@ -1,0 +1,42 @@
+
+<section id="sectionProductos">
+	<h1>Cargar producto</h1>
+	<div class="box">
+		<h1 id="{{nombreUsuario}}" class="emailUsuario">Bienvenido {{nombreUsuario}}</h1>
+		{{!-- <button onclick="cerrarSesion()">Cerrar Session</button> --}}
+		<form action="/api/usuarios/logout" method="post">
+			<input type="submit" value="Cerrar Session">
+		</form>
+		<br>
+		<div class="box">
+			{{!-- <form action="/api/productos/create" method="post"> --}}
+				{{!-- <form onsubmit="return crearProducto()"> --}}
+				<form onsubmit="return crearProducto()">
+					<label for="nombre">Nombre</label>
+					<input type="text" name="nombre" placeholder="Ingrese nombre" id="nombre">
+					<br>
+					<label for="precio">Precio</label>
+					<input type="number" name="precio" placeholder="Ingrese precio" id="precio">
+					<br>
+					<label for="descripcion">Descripcion</label>
+					<input type="text" name="descripcion" placeholder="Ingrese precio" id="descripcion">
+					<br>
+					<label for="codigo">codigo</label>
+					<input type="text" name="codigo" placeholder="Ingrese precio" id="codigo">
+					<br>
+					<label for="stock">stock</label>
+					<input type="number" name="stock" placeholder="Ingrese precio" id="stock">
+					<br>
+					<label for="fotoUrl">Url imagen</label>
+					<input type="text" name="fotoUrl" placeholder="Ingrese Url de imagen" id="fotoUrl">
+					<br>
+					<input type="submit" value="Guardar">
+				</form>
+				<br>
+		</div>
+</section>
+{{> listTable }}
+
+{{> carrito }}
+
+{{> chat }}

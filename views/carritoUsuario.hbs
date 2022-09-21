@@ -1,0 +1,17 @@
+<h1>Carrito usuario</h1>
+
+{{#if carritoUsuario }}
+<div id="carritoUsuario">
+  {{#each carritoUsuario}}
+			<p>{{emailUsuario}}</p>
+       {{#each productos}}
+        <p>{{nombre}}</p>
+        <p>{{codigo}}</p>
+        <p>{{precio}}</p>
+       {{/each}}
+		{{/each}}
+</div>
+{{else}}
+<h2>No hay carrito registrados</h2>
+{{/if}}
+
