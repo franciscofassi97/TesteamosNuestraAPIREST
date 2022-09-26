@@ -1,7 +1,7 @@
 const definirContenedor = require('../daos')
 
 const ContenedorProductosFactory = require('./productosFactory');
-const contenedor = new ContenedorProductosFactory().createContenedor('MONGO', 'Productos')
+const contenedor = new ContenedorProductosFactory().createContenedor('Productos')
 
 const agregarProducto = async (producto) => {
   // const contenedor = await definirContenedor('Productos');
