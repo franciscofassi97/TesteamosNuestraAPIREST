@@ -1,26 +1,29 @@
 const definirContenedor = require('../daos')
 
+const ContenedorProductosFactory = require('./productosFactory');
+const contenedor = new ContenedorProductosFactory().createContenedor('MONGO', 'Productos')
+
 const agregarProducto = async (producto) => {
-  const contenedor = await definirContenedor('Productos');
+  // const contenedor = await definirContenedor('Productos');
   const resultado = await contenedor.save(producto);
   return resultado;
 };
 
 const getAllProductos = async () => {
-  const contenedor = await definirContenedor('Productos');
+  // const contenedor = await definirContenedor('Productos');
   const productos = await contenedor.getAllData();
   if (productos) return productos
 };
 
 
 const getProductoById = async (id) => {
-  const contenedor = await definirContenedor('Productos');
+  // const contenedor = await definirContenedor('Productos');
   const producto = await contenedor.getById(id);
   if (producto) return producto
 };
 
 const deleteProductoById = async (id) => {
-  const contenedor = await definirContenedor('Productos');
+  // const contenedor = await definirContenedor('Productos');
   const productoEliminar = await contenedor.getById(id);
   if (productoEliminar) {
     const productoElimininado = await contenedor.deleteById(id)
@@ -30,7 +33,7 @@ const deleteProductoById = async (id) => {
 
 
 const updateProductoById = async (id, producto) => {
-  const contenedor = await definirContenedor('Productos');
+  // const contenedor = await definirContenedor('Productos');
 
   const productoActualizar = await contenedor.getById(id);
   if (!productoActualizar) throw new Error('No se econtro el producto');

@@ -6,6 +6,6 @@ class ContenedorMensajesFirebase extends ContenedorFirebase {
 	}
 }
 
-const contenedorMensajesFirebase = new ContenedorMensajesFirebase('mensajes');
+// const contenedorMensajesFirebase = new ContenedorMensajesFirebase('mensajes');
 
-module.exports = contenedorMensajesFirebase;
+module.exports = ContenedorMensajesFirebase;

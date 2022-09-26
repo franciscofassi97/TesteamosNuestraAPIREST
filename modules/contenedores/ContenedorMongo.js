@@ -1,10 +1,10 @@
-
+const connectDB = require('../../config/mongo');
+connectDB()
 class ContenedorMongo {
 
   constructor(schema) {
     this.schema = schema;
   }
-
   save = async (objecto) => {
     try {
       const objectoSaved = await this.schema(objecto).save();

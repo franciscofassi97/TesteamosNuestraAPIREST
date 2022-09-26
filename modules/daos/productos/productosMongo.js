@@ -7,6 +7,6 @@ class ContenedorProductosMongo extends ContenedorMongo {
 	}
 }
 
-const contenedorProductosMongo = new ContenedorProductosMongo(Productos);
+// const contenedorProductosMongo = new ContenedorProductosMongo(Productos);
 
-module.exports = contenedorProductosMongo;
+module.exports = ContenedorProductosMongo;

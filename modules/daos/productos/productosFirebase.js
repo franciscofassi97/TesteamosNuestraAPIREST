@@ -6,6 +6,6 @@ class ContenedorProductosFirebase extends ContenedorFirebase {
 	}
 }
 
-const contenedorProductosFirebase = new ContenedorProductosFirebase('productos');
+// const contenedorProductosFirebase = new ContenedorProductosFirebase('productos');
 
-module.exports = contenedorProductosFirebase;
+module.exports = ContenedorProductosFirebase;

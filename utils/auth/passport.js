@@ -7,7 +7,7 @@ const {
   getUsurioByEmailService,
   createUsuarioService,
   getUsuariosByIdService
-} = require('../../modules/usuarios/usuariosServices')
+} = require('../../modules/usuario/usuariosServices')
 
 
 passport.serializeUser((usuario, callback) => {

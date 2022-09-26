@@ -1,5 +1,5 @@
 const ContenedorMongo = require("../../contenedores/ContenedorMongo");
-const Carrito = require('../../carrito/carritoModel');
+// const Carrito = require('../../carrito/carritoModel');
 
 class ContenedorCarritoMongo extends ContenedorMongo {
   constructor(schema) {
@@ -7,6 +7,6 @@ class ContenedorCarritoMongo extends ContenedorMongo {
   }
 }
 
-const contenedorCarritoMongo = new ContenedorCarritoMongo(Carrito);
+// const contenedorCarritoMongo = new ContenedorCarritoMongo(Carrito);
 
-module.exports = contenedorCarritoMongo;
+module.exports = ContenedorCarritoMongo;

@@ -6,6 +6,6 @@ class ContenedorProductosArchivos extends ContenedorArchivos {
 	}
 }
 
-const contenedorProductosArchivo = new ContenedorProductosArchivos('productos.json');
+// const contenedorProductosArchivo = new ContenedorProductosArchivos('productos.json');
 
-module.exports = contenedorProductosArchivo;
+module.exports = ContenedorProductosArchivos;

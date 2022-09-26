@@ -1,5 +1,5 @@
 const ContenedorMongo = require("../../contenedores/ContenedorMongo");
-const Usuarios = require('../../usuarios/usuariosModel');
+
 
 class ContenedorUsuriosMongo extends ContenedorMongo {
   constructor(schema) {
@@ -7,6 +7,6 @@ class ContenedorUsuriosMongo extends ContenedorMongo {
   }
 }
 
-const contenedorUsuarioMongo = new ContenedorUsuriosMongo(Usuarios);
+// const contenedorUsuarioMongo = new ContenedorUsuriosMongo(Usuarios);
 
-module.exports = contenedorUsuarioMongo;
+module.exports = ContenedorUsuriosMongo;

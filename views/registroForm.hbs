@@ -8,37 +8,17 @@
 
 </section>
 {{else}}
-	<section>
+<section>
 	<h1>Registarse</h1>
 	<div class="box">
 		{{!-- <form action="/api/productos/create" method="post"> --}}
-
-			<form action="/api/usuarios/registro" method="post" enctype="multipart/form-data">
-
+			<form action="/api/usuarios/registro" method="post">
 				<label for="username">Email</label>
-				<input type="text" name="email" placeholder="Ingrese Correo" id="email">
-				<br>
+				<input type="text" name="username" placeholder="Ingrese Correo" id="username">
 				<label for="password">Password</label>
 				<input type="password" name="password" placeholder="Ingrese Correo" id="password">
-				<br>
-				<label for="nombre">Nombre</label>
-				<input type="nombre" name="nombre" placeholder="Ingrese Correo" id="nombre">
-				<br>
-				<label for="direccion">Direccion</label>
-				<input type="direccion" name="direccion" placeholder="Ingrese Correo" id="direccion">
-				<br>
-				<label for="edad">Edad</label>
-				<input type="edad" name="edad" placeholder="Ingrese Correo" id="edad">
-				<br>
-				<label for="numeroTelefono">Telefono</label>
-				<input type="numeroTelefono" name="numeroTelefono" placeholder="Ingrese Correo" id="numeroTelefono">
-				<br>
-				<label for="fotoUrl">Avatar</label>
-      	<input type="file" name="fotoUrl" id="fotoUrl" />
-				<br>
-				<input type="submit" value="Aceptar">
+				<input type="submit" value="Iniciar">
 			</form>
-			<br>
 			<button><a href="http://localhost:8080/api/usuarios/login">Volver</a></button>
 			<br>
 	</div>

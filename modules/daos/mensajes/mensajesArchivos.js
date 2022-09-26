@@ -6,6 +6,6 @@ class ContenedorMensajesArchivos extends ContenedorArchivos {
 	}
 }
 
-const contenedorMensajesArchivo = new ContenedorMensajesArchivos('mensajes.json');
+// const contenedorMensajesArchivo = new ContenedorMensajesArchivos('mensajes.json');
 
-module.exports = contenedorMensajesArchivo;
+module.exports = ContenedorMensajesArchivos;

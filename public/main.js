@@ -1,80 +1,43 @@
 const socket = io();
 const btnCerrarSession = document.getElementById("btnCerrarSession");
 
-var productosAgregarAlCarrito = [];
 const autorSchema = new normalizr.schema.Entity("autor", {}, { idAttribute: "mail" });
 
 const mensajesSchema = new normalizr.schema.Entity("mensajes", {
   autor: autorSchema,
 });
 
+const crearProducto = () => {
+  const nombre = document.getElementById("title").value;
+  const precio = document.getElementById("price").value;
+  const fotoUrl = document.getElementById("thumbnail").value;
 
-const crearProducto = (event) => {
+  const producto = { nombre, precio, fotoUrl }
 
-  const nombre = document.getElementById("nombre").value;
-  const precio = document.getElementById("precio").value;
-  const stock = document.getElementById('stock').value;
-  const codigo = document.getElementById('codigo').value;
-  const descripcion = document.getElementById('descripcion').value;
-  const fotoUrl = document.getElementById("fotoUrl").value;
-
-  const producto = { nombre, precio, stock, codigo, descripcion, fotoUrl }
   socket.emit("agregarProducto", producto);
   return false;
 };
 
-socket.on("leerProductos", async (productos) => {
-
+socket.on("leerProductos", (productos) => {
   if (productos.length > 0) {
     document.getElementById("tbodyProductos").innerHTML = "";
     document.getElementById("divErrors").innerHTML = "";
 
     for (let i = 0; i < productos.length; i++) {
       let producto = productos[i];
-      let idProdcuto = producto.id || producto._id
       let productoHTML = `
-             <tr>
-               <td>${producto.nombre}</td>
-               <td>${producto.descripcion}</td>
-               <td>${producto.codigo}</td>
-               <td>${producto.precio}</td>
-               <td>${producto.stock}</td>
-               <td><img style="width: 50px; height:50px" src=${producto.fotoUrl} alt=""></td>
-               <td><form onsubmit="return agregarAlCarrito('${idProdcuto}','${producto.nombre}','${producto.precio}')"><input type="submit" value="Comprar"></form></td>
-             </tr>`;
+           <tr>
+           	<td>${producto.nombre}</td>
+           	<td>${producto.precio}</td>
+           	<td><img style="width: 50px; height:50px" src=${producto.fotoUrl} alt=""></td>
+           </tr>
+           `;
       document.getElementById("tbodyProductos").innerHTML += productoHTML;
     }
   }
-});
+})
 
 
-const agregarAlCarrito = (idProducto, nombre, precio) => {
-  const producto = { idProducto, nombre, precio }
-  productosAgregarAlCarrito.push(producto);
-  document.getElementById("divCarrito").innerHTML = "";
-  for (let i = 0; i < productosAgregarAlCarrito.length; i++) {
-
-    const producto = productosAgregarAlCarrito[i];
-    const carritoHtml = ` <label>${producto.nombre} ${producto.precio}</label> <br>`;
-    document.getElementById("divCarrito").innerHTML += carritoHtml;
-
-  };
-  return false;
-}
-
-const onConfirmarCompra = () => {
-  const elementUsuario = document.getElementsByClassName('emailUsuario')
-  const emailUsuairo = elementUsuario[0].id;
-
-  socket.emit("crearCarritoConProductos", productosAgregarAlCarrito, emailUsuairo);
-  return false;
-}
-
-socket.on('finAgregarAlCarrito', (resultado) => {
-  document.getElementById("divCarrito").innerHTML = "";
-  if (!resultado) document.getElementById("divCarrito").innerHTML = `<p>Compra Realizada</p>`
-  else document.getElementById("divCarrito").innerHTML = `<p>Ocurrio algun problema</p>`
-});
 
 const onMessage = () => {
 
@@ -133,4 +96,8 @@ socket.on("leerMensajes", (mensajes) => {
       "<h1>No hay Mensajes</h1>";
   }
 });
+
+
+
+
 
